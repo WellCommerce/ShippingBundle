@@ -10,22 +10,24 @@
  * please view the LICENSE file that was distributed with this source code.
  */
 
-namespace WellCommerce\Bundle\ShippingBundle\Adapter;
+namespace WellCommerce\Bundle\ShippingBundle\Calculator;
 
 /**
- * Interface ShippingCalculatorAdapterInterface
+ * Interface ShippingSubjectInterface
  *
  * @author  Adam Piotrowski <adam@wellcommerce.org>
  */
-interface ShippingCalculatorAdapterInterface
+interface ShippingSubjectInterface
 {
     public function getQuantity() : int;
-
+    
     public function getWeight() : float;
+
+    public function getNetPrice() : float;
 
     public function getGrossPrice() : float;
 
-    public function getCurrency() : string;
+    public function getTaxAmount() : float;
 
-    public function supports($resource) : bool;
+    public function getCurrency() : string;
 }

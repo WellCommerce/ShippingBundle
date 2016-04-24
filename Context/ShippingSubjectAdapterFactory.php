@@ -10,18 +10,17 @@
  * please view the LICENSE file that was distributed with this source code.
  */
 
-namespace WellCommerce\Bundle\ShippingBundle\Entity;
+namespace WellCommerce\Bundle\ShippingBundle\Calculator\Adapter;
+
+use WellCommerce\Bundle\CartBundle\Entity\CartInterface;
+use WellCommerce\Bundle\OrderBundle\Entity\OrderInterface;
 
 /**
- * Interface ShippingMethodAwareInterface
+ * Class ShippingSubjectAdapterFactory
  *
  * @author  Adam Piotrowski <adam@wellcommerce.org>
  */
-interface ShippingMethodAwareInterface
+class ShippingSubjectAdapterFactory
 {
-    public function setShippingMethod(ShippingMethodInterface $shippingMethod);
-
-    public function getShippingMethod() : ShippingMethodInterface;
-
-    public function hasShippingMethod() : bool;
+    
 }

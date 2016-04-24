@@ -10,18 +10,17 @@
  * please view the LICENSE file that was distributed with this source code.
  */
 
-namespace WellCommerce\Bundle\ShippingBundle\Entity;
+namespace WellCommerce\Bundle\ShippingBundle\Exception;
 
 /**
- * Interface ShippingMethodAwareInterface
+ * Class ShippingSubjectAdapterNotFoundException
  *
  * @author  Adam Piotrowski <adam@wellcommerce.org>
  */
-interface ShippingMethodAwareInterface
+class ShippingSubjectAdapterNotFoundException extends \RuntimeException
 {
-    public function setShippingMethod(ShippingMethodInterface $shippingMethod);
-
-    public function getShippingMethod() : ShippingMethodInterface;
-
-    public function hasShippingMethod() : bool;
+    public function __construct($resource)
+    {
+        parent::__construct(sprintf('There are no adapters which can support "%"', get_class($resource)));
+    }
 }

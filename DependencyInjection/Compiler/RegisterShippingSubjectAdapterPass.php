@@ -18,11 +18,11 @@ use Symfony\Component\DependencyInjection\Reference;
 use WellCommerce\Bundle\ShippingBundle\Calculator\ShippingCalculatorInterface;
 
 /**
- * Class RegisterShippingMethodCalculatorPass
+ * Class RegisterShippingSubjectAdapterPass
  *
  * @author  Adam Piotrowski <adam@wellcommerce.org>
  */
-class RegisterShippingMethodCalculatorPass implements CompilerPassInterface
+class RegisterShippingSubjectAdapterPass implements CompilerPassInterface
 {
     /**
      * Processes the container
@@ -31,9 +31,9 @@ class RegisterShippingMethodCalculatorPass implements CompilerPassInterface
      */
     public function process(ContainerBuilder $container)
     {
-        $tag        = 'shipping_method.calculator';
+        $tag        = 'shipping_subject.adapter';
         $interface  = ShippingCalculatorInterface::class;
-        $definition = $container->getDefinition('shipping_method.calculator.collection');
+        $definition = $container->getDefinition('shipping_subject.adapter.collection');
         
         foreach ($container->findTaggedServiceIds($tag) as $id => $attributes) {
             $itemDefinition = $container->getDefinition($id);
